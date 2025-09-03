@@ -75,6 +75,7 @@
     .modal .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:10px}
   </style>
 </head>
+<link rel="manifest" href="manifest.json">
 <body>
   <div class="wrap">
     <header>
@@ -345,5 +346,12 @@
 
     init();
   </script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+      .then(() => console.log("Service Worker registrado"))
+      .catch(err => console.error("SW erro:", err));
+  }
+</script>
 </body>
 </html>
